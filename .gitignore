@@ -4,13 +4,18 @@
 
 ### Node ###
 # Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
+front/app/logs
+front/app/*.log
+front/app/npm-debug.log*
+front/app/yarn-debug.log*
+front/app/yarn-error.log*
+back/lerna-debug.log*
+back/logs
+back/*.log
+back/npm-debug.log*
+back/yarn-debug.log*
+back/yarn-error.log*
+back/lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -42,8 +47,10 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
-jspm_packages/
+front/app/node_modules/
+back/node_modules/
+back/jspm_packages/
+front/app/jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
