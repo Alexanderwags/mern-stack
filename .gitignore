@@ -4,11 +4,11 @@
 
 ### Node ###
 # Logs
-front/app/logs
-front/app/*.log
-front/app/npm-debug.log*
-front/app/yarn-debug.log*
-front/app/yarn-error.log*
+front/logs
+front/*.log
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*
 back/lerna-debug.log*
 back/logs
 back/*.log
@@ -47,10 +47,10 @@ bower_components
 build/Release
 
 # Dependency directories
-front/app/node_modules/
+front/node_modules/
 back/node_modules/
 back/jspm_packages/
-front/app/jspm_packages/
+front/jspm_packages/
 
 # TypeScript v1 declaration files
 typings/
