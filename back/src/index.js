@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import router from "./routes/task";
 import path from "path";
+import { mongoose } from "./db";
 
 const app = express();
 
