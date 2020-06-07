@@ -1,7 +1,12 @@
 import React from "react";
+import Card from "componets/Card/index";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Card />
+    </>
+  );
 }
 
 export default App;
