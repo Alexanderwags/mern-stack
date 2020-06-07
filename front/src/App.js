@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "componets/Card/index";
-
+import "Global/styles.scss";
+import Router from "router";
 function App() {
   return (
     <>
-      <Card />
+      <Router />
     </>
   );
 }
