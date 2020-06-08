@@ -9,8 +9,8 @@ const initialStore = {
 
 const taskReducer = (state = initialStore, action) => {
   console.log("global", action);
-  switch (action) {
-    case action.type === ADD_TASK:
+  switch (action.type) {
+    case "ADD_TASK":
       const data = getData();
       return {
         ...state,
