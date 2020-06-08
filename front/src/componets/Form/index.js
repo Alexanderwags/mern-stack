@@ -1,29 +1,24 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import Button from "@material-ui/core/Button";
 import Styles from "./styles/Styles.module.scss";
+import { senData } from "Api";
+import { connect } from "react-redux";
+import { addToCart } from "Redux/actionCreator";
+
 function Form(props) {
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
-
+  console.log("state task : ", props.task);
   function addTask(e) {
     e.preventDefault();
     const newTask = {
       title,
       description,
     };
-    fetch("http://localhost:4000/api/tasks", {
-      method: "POST",
-      body: JSON.stringify(newTask),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    senData(newTask);
+    props.addTaskGlobal();
   }
   function onChangeTitle(e) {
     settitle(e.target.value);
@@ -67,5 +62,13 @@ function Form(props) {
 Form.propTypes = {
   props: PropTypes.string,
 };
+const mapStateToProps = (state) => ({
+  task: state.taskReducer.task,
+});
 
-export default Form;
+const mapDispatchToProps = (dispatch) => ({
+  addTaskGlobal() {
+    dispatch(addToCart);
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
