@@ -7,7 +7,7 @@ import { senData } from "Api";
 import { connect } from "react-redux";
 import { addToCart } from "Redux/actionCreator";
 
-function Form(props) {
+const Form = (props) => {
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
   console.log("state task : ", props.task);
@@ -57,7 +57,7 @@ function Form(props) {
       </Button>
     </form>
   );
-}
+};
 
 Form.propTypes = {
   props: PropTypes.string,

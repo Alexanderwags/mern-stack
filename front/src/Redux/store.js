@@ -4,17 +4,22 @@ import thunk from "redux-thunk";
 import { ADD_TASK } from "./actions";
 import { getData } from "Api";
 const initialStore = {
-  task: [],
+  task: [
+    {
+      prueba: "prueba",
+    },
+  ],
 };
 
 const taskReducer = (state = initialStore, action) => {
   console.log("global", action);
+
   switch (action.type) {
     case "ADD_TASK":
       const data = getData();
+      let file = state.task.concat(data);
       return {
-        ...state,
-        task: state.task.concat(data),
+        file,
       };
     default:
       return state;
