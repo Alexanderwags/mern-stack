@@ -7,10 +7,10 @@ import { senData } from "Api";
 import { connect } from "react-redux";
 import { addToCart } from "Redux/actionCreator";
 
-const Form = (props) => {
+const Form = ({ addTaskGlobal, task }) => {
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
-  console.log("state task : ", props.task);
+  console.log("task: ", task);
   function addTask(e) {
     e.preventDefault();
     const newTask = {
@@ -18,7 +18,7 @@ const Form = (props) => {
       description,
     };
     senData(newTask);
-    props.addTaskGlobal();
+    addTaskGlobal();
   }
   function onChangeTitle(e) {
     settitle(e.target.value);
@@ -60,7 +60,8 @@ const Form = (props) => {
 };
 
 Form.propTypes = {
-  props: PropTypes.string,
+  addTaskGlobal: PropTypes.func,
+  task: PropTypes.array,
 };
 const mapStateToProps = (state) => ({
   task: state.taskReducer.task,
@@ -68,7 +69,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addTaskGlobal() {
-    dispatch(addToCart);
+    dispatch(addToCart());
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

@@ -17,8 +17,8 @@ export async function senData(newTask) {
 export async function getData() {
   try {
     const data = await fetch("http://localhost:4000/api/tasks");
-    const res = data.json();
-    return res;
+
+    return await data.json();
   } catch {
     console.log("fail getData");
   }

@@ -2,28 +2,22 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { ADD_TASK } from "./actions";
-import { getData } from "Api";
+import { getData } from "Api/index.js";
 const initialStore = {
-  task: [
-    {
-      prueba: "prueba",
-    },
-  ],
+  task: [],
 };
 
 const taskReducer = (state = initialStore, action) => {
-  console.log("global", action);
+  if (action.type === "ADD_TASK") {
+    console.log("entro");
+    let data = getData();
 
-  switch (action.type) {
-    case "ADD_TASK":
-      const data = getData();
-      let file = state.task.concat(data);
-      return {
-        file,
-      };
-    default:
-      return state;
+    return {
+      ...state,
+      task: state.task.concat(data),
+    };
   }
+
   return state;
 };
 export default createStore(
